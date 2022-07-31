@@ -1,5 +1,7 @@
 package com.voudouris.alexios.phoneValidationCore;
 
+
+
 public class PhoneNumberValidationUtils {
 
 	public static boolean isGreekPhoneNumber(String candidateNumber) {
@@ -14,9 +16,5 @@ public class PhoneNumberValidationUtils {
 		}
 
 		return false;
-	}
-
-	public static String[] splitInput(String input) {
-		return input.trim().split(" ");
-	}
+	}	
 }
