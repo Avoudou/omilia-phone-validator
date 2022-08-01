@@ -1,7 +1,6 @@
 package com.voudouris.alexios.phoneValidationCore;
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,7 +10,21 @@ import org.junit.Test;
 
 public class AmbiguitiesResolverUtilsTest {
 
-	
+	@Test
+	public void createBaseCaseTest() {
+		AmbiguityExpantionTestCase[] testCases = {
+				new AmbiguityExpantionTestCase(new String[] { "999", "0", "30", "210", "777", "1", "12", "1" },
+						new String[] { "900", "90", "9", "0", "30", "200", "10", "700", "70", "7", "1", "12", "1" }),
+				new AmbiguityExpantionTestCase(new String[] { "0", "0", "30", "210", "777", "1", "12", "25" },
+						new String[] { "0", "0", "30", "200", "10", "700", "70", "7", "1", "12", "20", "5" }),
+				new AmbiguityExpantionTestCase(new String[] { "2", "10", "35", "10", "777", "1", "12", "995" },
+						new String[] { "2", "10", "30", "5", "10", "700", "70", "7", "1", "12", "900", "90", "5" })
+
+		};
+		for (AmbiguityExpantionTestCase testcase : testCases) {
+			assertEquals(testcase.getResult(), AmbiguitiesResolverUtils.createBaseCase(testcase.getInput()));
+		}
+	}
 
 	@Test
 	public void expandNumberAmbiguitiesSingleDigitTest() {
@@ -44,22 +57,6 @@ public class AmbiguitiesResolverUtilsTest {
 	}
 
 	@Test
-	public void createBaseCaseTest() {
-		AmbiguityExpantionTestCase[] testCases = {
-				new AmbiguityExpantionTestCase(new String[] { "999", "0", "30", "210", "777", "1", "12", "1" },
-						new String[] { "900", "90", "9", "0","30", "200", "10", "700", "70", "7", "1", "12", "1" }),
-				new AmbiguityExpantionTestCase(new String[] { "0", "0", "30", "210", "777", "1", "12", "25" },
-						new String[] { "0", "0", "30", "200", "10", "700", "70", "7", "1", "12", "20", "5" }),
-				new AmbiguityExpantionTestCase(new String[] { "2", "10", "35", "10", "777", "1", "12", "995" },
-						new String[] { "2", "10", "30","5" ,"10",  "700", "70", "7", "1", "12", "900", "90","5" })
-
-		};
-		for(AmbiguityExpantionTestCase testcase:testCases) {
-			assertEquals(testcase.getResult(), AmbiguitiesResolverUtils.createBaseCase(testcase.getInput()));
-		}
-	}
-
-	@Test
 	public void isMergableTest() {
 		assertFalse(AmbiguitiesResolverUtils.isMergable("0", "1"));
 		assertFalse(AmbiguitiesResolverUtils.isMergable("10", "1"));
@@ -76,8 +73,6 @@ public class AmbiguitiesResolverUtilsTest {
 		assertTrue(AmbiguitiesResolverUtils.isMergable("100", "19"));
 		assertTrue(AmbiguitiesResolverUtils.isMergable("900", "99"));
 	}
-
-
 
 	static class AmbiguityExpantionTestCase {
 

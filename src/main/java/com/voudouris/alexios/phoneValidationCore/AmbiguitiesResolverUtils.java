@@ -5,8 +5,6 @@ import java.util.LinkedList;
 
 public class AmbiguitiesResolverUtils {
 
-	
-
 	public static LinkedList<String> createBaseCase(String[] inputNumbers) {
 		LinkedList<String> list = new LinkedList<>();
 

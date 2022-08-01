@@ -65,17 +65,17 @@ public class PhoneNumberValidationStringUtilsTest {
 	}
 
 	@Test
-	public void correctWhiteSpaceSeperationTest() {
-		assertTrue(PhoneNumberValidationStringUtils.correctWhiteSpaceSeperation(""));
-		assertTrue(PhoneNumberValidationStringUtils.correctWhiteSpaceSeperation(" "));
-		assertTrue(PhoneNumberValidationStringUtils.correctWhiteSpaceSeperation("1 23 456 789"));
+	public void containsAtMostSingleWhiteSpacesTest() {
+		assertTrue(PhoneNumberValidationStringUtils.containsAtMostSingleWhiteSpaces(""));
+		assertTrue(PhoneNumberValidationStringUtils.containsAtMostSingleWhiteSpaces(" "));
+		assertTrue(PhoneNumberValidationStringUtils.containsAtMostSingleWhiteSpaces("1 23 456 789"));
 
-		assertFalse(PhoneNumberValidationStringUtils.correctWhiteSpaceSeperation("  "));
-		assertFalse(PhoneNumberValidationStringUtils.correctWhiteSpaceSeperation("       "));
-		assertFalse(PhoneNumberValidationStringUtils.correctWhiteSpaceSeperation("1 23  456 789"));
-		assertFalse(PhoneNumberValidationStringUtils.correctWhiteSpaceSeperation("1 23   456 789"));
-		assertFalse(PhoneNumberValidationStringUtils.correctWhiteSpaceSeperation("1 23 456   789"));
-		assertFalse(PhoneNumberValidationStringUtils.correctWhiteSpaceSeperation("1  23 456 789"));
+		assertFalse(PhoneNumberValidationStringUtils.containsAtMostSingleWhiteSpaces("  "));
+		assertFalse(PhoneNumberValidationStringUtils.containsAtMostSingleWhiteSpaces("       "));
+		assertFalse(PhoneNumberValidationStringUtils.containsAtMostSingleWhiteSpaces("1 23  456 789"));
+		assertFalse(PhoneNumberValidationStringUtils.containsAtMostSingleWhiteSpaces("1 23   456 789"));
+		assertFalse(PhoneNumberValidationStringUtils.containsAtMostSingleWhiteSpaces("1 23 456   789"));
+		assertFalse(PhoneNumberValidationStringUtils.containsAtMostSingleWhiteSpaces("1  23 456 789"));
 	}
 
 	static class InputSplittingTestCase {

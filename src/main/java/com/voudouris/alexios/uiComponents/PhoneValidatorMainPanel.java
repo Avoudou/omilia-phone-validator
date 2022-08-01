@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -86,7 +85,7 @@ public class PhoneValidatorMainPanel extends JPanel {
 					for (String phoneDigit : phoneNumber) {
 						phoneStringFormat = phoneStringFormat + phoneDigit;
 					}
-					display.append(phoneStringFormat +"  " +PhoneNumberValidationStringUtils.isValidGreePhoneNum(phoneStringFormat)+ "\n");
+					display.append(phoneStringFormat +"  " +PhoneNumberValidationStringUtils.getValidityReport(phoneStringFormat)+ "\n");
 				}
 				display.append("\n");
 				display.append("Number of results : " + possiblePhoneNumbers.size());

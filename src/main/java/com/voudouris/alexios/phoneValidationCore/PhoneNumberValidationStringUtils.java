@@ -21,7 +21,7 @@ public class PhoneNumberValidationStringUtils {
 	}
 
 	public static boolean isValidInput(String inputString) {
-		return containsOnlyNumbers(inputString) && correctWhiteSpaceSeperation(inputString)
+		return containsOnlyNumbers(inputString) && containsAtMostSingleWhiteSpaces(inputString)
 				&& hasMaxThreeDigitNumbers(inputString);
 	}
 
@@ -30,7 +30,7 @@ public class PhoneNumberValidationStringUtils {
 		return removedWhiteSpacesInput.matches("[0-9]+");
 	}
 
-	public static boolean correctWhiteSpaceSeperation(String inputString) {
+	public static boolean containsAtMostSingleWhiteSpaces(String inputString) {
 		return !inputString.contains("  ");
 	}
 
@@ -45,7 +45,7 @@ public class PhoneNumberValidationStringUtils {
 		return true;
 	}
 
-	public static String isValidGreePhoneNum(String candidateNumber) {
+	public static String getValidityReport(String candidateNumber) {
 		return isGreekPhoneNumber(candidateNumber) ? ("[phone number: VALID]") : ("[phone number: INVALID]");
 	}
 }
