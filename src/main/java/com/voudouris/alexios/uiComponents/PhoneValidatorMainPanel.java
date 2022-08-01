@@ -35,26 +35,17 @@ public class PhoneValidatorMainPanel extends JPanel {
 
 		this.inputField = new JTextField();
 		inputField.setAlignmentX(CENTER_ALIGNMENT);
+		inputField.setMaximumSize(new Dimension(400, 70));
+		inputField.setFont(new Font("SansSerif", Font.BOLD, 20));
 
 		this.calculateAmbiguitiesBtn = new JButton("Calculate");
 		calculateAmbiguitiesBtn.setAlignmentX(CENTER_ALIGNMENT);
 
-		this.add(Box.createVerticalStrut(40));
-		inputField.setMaximumSize(new Dimension(400, 70));
-		inputField.setFont(new Font("SansSerif", Font.BOLD, 20));
-
+		Font labelFont = new Font("SansSerif", Font.BOLD, 22);
 		JLabel inputLabel = new JLabel("Input:");
-		inputLabel.setFont(new Font("SansSerif", Font.BOLD, 22));
-		this.add(inputLabel);
-		this.add(inputField);
-		this.add(Box.createVerticalStrut(5));
-		this.add(calculateAmbiguitiesBtn);
-
-		this.add(Box.createVerticalStrut(60));
-
 		JLabel outputLbl = new JLabel("Output:");
-		outputLbl.setFont(new Font("SansSerif", Font.BOLD, 22));
-		this.add(outputLbl);
+		inputLabel.setFont(labelFont);
+		outputLbl.setFont(labelFont);
 
 		this.display = new JTextArea();
 		display.setFont(new Font("SansSerif", Font.BOLD, 16));
@@ -66,6 +57,14 @@ public class PhoneValidatorMainPanel extends JPanel {
 
 		addCalculateButtonActionListener();
 		addInputValidationListener();
+
+		this.add(Box.createVerticalStrut(40));
+		this.add(inputLabel);
+		this.add(inputField);
+		this.add(Box.createVerticalStrut(5));
+		this.add(calculateAmbiguitiesBtn);
+		this.add(Box.createVerticalStrut(60));
+		this.add(outputLbl);
 		this.add(scroll);
 	}
 
@@ -85,7 +84,9 @@ public class PhoneValidatorMainPanel extends JPanel {
 					for (String phoneDigit : phoneNumber) {
 						phoneStringFormat = phoneStringFormat + phoneDigit;
 					}
-					display.append(phoneStringFormat +"  " +PhoneNumberValidationStringUtils.getValidityReport(phoneStringFormat)+ "\n");
+					display.append(phoneStringFormat + "  "
+							+ PhoneNumberValidationStringUtils.getGreekPhoneNumValidityReport(phoneStringFormat)
+							+ "\n");
 				}
 				display.append("\n");
 				display.append("Number of results : " + possiblePhoneNumbers.size());
@@ -116,8 +117,8 @@ public class PhoneValidatorMainPanel extends JPanel {
 
 			public void handleValidity() {
 				if (!PhoneNumberValidationStringUtils.isValidInput(inputField.getText())) {
-					if(!inputField.getText().equals("")) {
-					display.append("\n"+"Invalid Input :" + inputField.getText());
+					if (!inputField.getText().equals("")) {
+						display.append("\n" + "Invalid Input :");
 					}
 					inputField.setBackground(Color.RED);
 					calculateAmbiguitiesBtn.setEnabled(false);

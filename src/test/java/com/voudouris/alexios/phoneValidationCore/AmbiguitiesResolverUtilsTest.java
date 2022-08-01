@@ -58,20 +58,20 @@ public class AmbiguitiesResolverUtilsTest {
 
 	@Test
 	public void isMergableTest() {
-		assertFalse(AmbiguitiesResolverUtils.isMergable("0", "1"));
-		assertFalse(AmbiguitiesResolverUtils.isMergable("10", "1"));
-		assertFalse(AmbiguitiesResolverUtils.isMergable("20", "0"));
-		assertFalse(AmbiguitiesResolverUtils.isMergable("100", "0"));
-		assertFalse(AmbiguitiesResolverUtils.isMergable("111", "1"));
-		assertFalse(AmbiguitiesResolverUtils.isMergable("110", "11"));
-		assertFalse(AmbiguitiesResolverUtils.isMergable("100", "236"));
-		assertFalse(AmbiguitiesResolverUtils.isMergable("200", "100"));
+		assertFalse(AmbiguitiesResolverUtils.isMergeable("0", "1"));
+		assertFalse(AmbiguitiesResolverUtils.isMergeable("10", "1"));
+		assertFalse(AmbiguitiesResolverUtils.isMergeable("20", "0"));
+		assertFalse(AmbiguitiesResolverUtils.isMergeable("100", "0"));
+		assertFalse(AmbiguitiesResolverUtils.isMergeable("111", "1"));
+		assertFalse(AmbiguitiesResolverUtils.isMergeable("110", "11"));
+		assertFalse(AmbiguitiesResolverUtils.isMergeable("100", "236"));
+		assertFalse(AmbiguitiesResolverUtils.isMergeable("200", "100"));
 
-		assertTrue(AmbiguitiesResolverUtils.isMergable("20", "1"));
-		assertTrue(AmbiguitiesResolverUtils.isMergable("90", "9"));
-		assertTrue(AmbiguitiesResolverUtils.isMergable("100", "1"));
-		assertTrue(AmbiguitiesResolverUtils.isMergable("100", "19"));
-		assertTrue(AmbiguitiesResolverUtils.isMergable("900", "99"));
+		assertTrue(AmbiguitiesResolverUtils.isMergeable("20", "1"));
+		assertTrue(AmbiguitiesResolverUtils.isMergeable("90", "9"));
+		assertTrue(AmbiguitiesResolverUtils.isMergeable("100", "1"));
+		assertTrue(AmbiguitiesResolverUtils.isMergeable("100", "19"));
+		assertTrue(AmbiguitiesResolverUtils.isMergeable("900", "99"));
 	}
 
 	static class AmbiguityExpantionTestCase {

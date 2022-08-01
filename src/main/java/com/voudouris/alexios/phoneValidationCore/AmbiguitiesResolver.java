@@ -6,6 +6,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
+/**
+ *Provides the main functionality required by the project.
+ *Stores a single phone number input given in the constructor  {@link #AmbiguitiesResolver(String[])} and all the possible
+ *phone numbers  the input can generate.  
+ */
 public class AmbiguitiesResolver {
 
 	private String[] inputNumbers;
@@ -16,6 +21,9 @@ public class AmbiguitiesResolver {
 		this.inputNumbers = inputNumbers;
 	}
 
+	/**
+	 * Method to calculate all the possible phone numbers given the instance input.
+	 */
 	public void calculateResults() {
 
 		Queue<LinkedList<String>> queue = new LinkedList<>();
@@ -29,7 +37,7 @@ public class AmbiguitiesResolver {
 			}
 			explored.add(current);
 			for (int i = 0; i < current.size() - 1; i++) {
-				if (AmbiguitiesResolverUtils.isMergable(current.get(i), current.get(i + 1))) {
+				if (AmbiguitiesResolverUtils.isMergeable(current.get(i), current.get(i + 1))) {
 					LinkedList<String> resultCase = new LinkedList<>(current);
 					int mergeResult = Integer.parseInt(current.get(i)) + Integer.parseInt(current.get(i + 1));
 					resultCase.set(i, mergeResult + "");
@@ -42,6 +50,9 @@ public class AmbiguitiesResolver {
 	}
 
 	
+	/**
+	 * @return The possible phone numbers generated
+	 */
 	public ArrayList<LinkedList<String>> getPossiblePhoneNumbers() {
 		return possiblePhoneNumbers;
 	}

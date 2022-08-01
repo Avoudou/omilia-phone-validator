@@ -3,9 +3,20 @@ package com.voudouris.alexios.phoneValidationCore;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/**
+ * Utility class containing methods used specifically in
+ * {@link AmbiguitiesResolver}
+ */
 public class AmbiguitiesResolverUtils {
 
-	public static LinkedList<String> createBaseCase(String[] inputNumbers) {
+	/**
+	 * Creates the base case for the {@link AmbiguitiesResolver} algorithm to
+	 * calculate all the possible phone numbers if the input contains ambiguities by
+	 * calling {@link #expandNumberAmbiguities(String)} for each String
+	 * representation of numbers in the input array.
+	 * @return LinkedList containing the expanded input
+	 */
+	static LinkedList<String> createBaseCase(String[] inputNumbers) {
 		LinkedList<String> list = new LinkedList<>();
 
 		for (int i = 0; i < inputNumbers.length; i++) {
@@ -17,7 +28,12 @@ public class AmbiguitiesResolverUtils {
 		return list;
 	}
 
-	public static ArrayList<Integer> expandNumberAmbiguities(String num) {
+	/**
+	 * Given a String representation of a number it splits it to number components
+	 * according to the pronunciation constraints given, such as the sum of the
+	 * numbers equals the input.
+	 */
+	static ArrayList<Integer> expandNumberAmbiguities(String num) {
 		ArrayList<Integer> list = new ArrayList<>();
 		String tail;
 
@@ -44,24 +60,26 @@ public class AmbiguitiesResolverUtils {
 
 		return list;
 	}
-
-	public static boolean isMergable(String a, String b) {
-		int aParsed = Integer.parseInt(a);
-		if (a.length() == 1) {
+	
+	
+	/**
+	 * Checks if the two numbers assuming they were pronounced have an ambiguity and can be merged.
+	 */
+	static boolean isMergeable(String num0, String num1) {
+		int aParsed = Integer.parseInt(num0);
+		if (num0.length() == 1) {
 			return false;
-		} else if (a.length() == 2 && aParsed % 10 == 0 && aParsed >= 20) {
-			if (b.length() == 1 && !b.equals("0")) {
+		} else if (num0.length() == 2 && aParsed % 10 == 0 && aParsed >= 20) {
+			if (num1.length() == 1 && !num1.equals("0")) {
 				return true;
 			}
-		} else if (a.length() == 3) {
-			if (aParsed % 100 == 0 && b.length() != 3 && !b.equals("0")) {
+		} else if (num0.length() == 3) {
+			if (aParsed % 100 == 0 && num1.length() != 3 && !num1.equals("0")) {
 				return true;
-			} else if (aParsed % 10 == 0 && b.length() == 1 && !b.equals("0")) {
+			} else if (aParsed % 10 == 0 && num1.length() == 1 && !num1.equals("0")) {
 				return true;
 			}
 		}
 		return false;
 	}
-
-
 }
