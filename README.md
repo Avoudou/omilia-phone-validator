@@ -1,9 +1,9 @@
 # Omilia Phone Validator
 
-##Prerequisite
+## Prerequisite
 You need JDK 8+ and Maven installed on your machine.
 
-##Building and launching 
+## Building and launching 
 If  the project is open with an IDE run the main method in com.voudouris.alexios.phoneValidatorLauncher.PVLauncher class.
 To run  without using an IDE:
 Open the console in the main project folder containing the pom.xml file and run:
