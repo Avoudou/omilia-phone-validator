@@ -40,6 +40,7 @@ public class PhoneValidatorMainPanel extends JPanel {
 
 		this.calculateAmbiguitiesBtn = new JButton("Calculate");
 		calculateAmbiguitiesBtn.setAlignmentX(CENTER_ALIGNMENT);
+		calculateAmbiguitiesBtn.setEnabled(false);
 
 		Font labelFont = new Font("SansSerif", Font.BOLD, 22);
 		JLabel inputLabel = new JLabel("Input:");
@@ -118,7 +119,7 @@ public class PhoneValidatorMainPanel extends JPanel {
 			public void handleValidity() {
 				if (!PhoneNumberValidationStringUtils.isValidInput(inputField.getText())) {
 					if (!inputField.getText().equals("")) {
-						display.append("\n" + "Invalid Input :");
+						display.setText("\n" + "Invalid Input");
 					}
 					inputField.setBackground(Color.RED);
 					calculateAmbiguitiesBtn.setEnabled(false);

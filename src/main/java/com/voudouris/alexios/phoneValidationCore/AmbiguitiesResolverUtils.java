@@ -14,7 +14,7 @@ public class AmbiguitiesResolverUtils {
 	 * calculate all the possible phone numbers if the input contains ambiguities by
 	 * calling {@link #expandNumberAmbiguities(String)} for each String
 	 * representation of numbers in the input array.
-	 * @return LinkedList containing the expanded input
+	 * @return LinkedList containing the expanded input.
 	 */
 	static LinkedList<String> createBaseCase(String[] inputNumbers) {
 		LinkedList<String> list = new LinkedList<>();

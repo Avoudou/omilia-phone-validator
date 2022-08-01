@@ -27,7 +27,7 @@ public class PhoneNumberValidationStringUtils {
 	}
 
 	/**
-	 * Splits the String around the single whitespace character
+	 * Splits the String around the single whitespace character.
 	 */
 	public static String[] splitInput(String inputString) {
 		return inputString.trim().split(" ");
@@ -35,7 +35,7 @@ public class PhoneNumberValidationStringUtils {
 
 	/**
 	 * Returns True if the input String contains only 3-digit numbers blocks
-	 * separated by single white space.,False otherwise
+	 * separated by single white space.,False otherwise.
 	 */
 	public static boolean isValidInput(String inputString) {
 		return containsOnlyNumbers(inputString) && containsAtMostSingleWhiteSpaces(inputString)
@@ -86,7 +86,7 @@ public class PhoneNumberValidationStringUtils {
 
 	/**
 	 * Method to be used to print if a phone number is a valid Greek phone number or
-	 * not
+	 * not.
 	 */
 	public static String getGreekPhoneNumValidityReport(String candidateNumber) {
 		return isGreekPhoneNumber(candidateNumber) ? ("[phone number: VALID]") : ("[phone number: INVALID]");

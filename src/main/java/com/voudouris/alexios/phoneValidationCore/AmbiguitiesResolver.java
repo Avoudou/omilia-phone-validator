@@ -51,7 +51,7 @@ public class AmbiguitiesResolver {
 
 	
 	/**
-	 * @return The possible phone numbers generated
+	 * @return The possible phone numbers generated.
 	 */
 	public ArrayList<LinkedList<String>> getPossiblePhoneNumbers() {
 		return possiblePhoneNumbers;
